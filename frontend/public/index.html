@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dragon Token Info</title>
+    <!-- Local libraries -->
+    <script src="lib/chart.js"></script>
+    <link rel="icon" type="image/png" sizes="128x128" href="images/icon-128.png" />
+    <link rel="stylesheet" href="lib/fontawesome/css/all.min.css" />
+
+    <!-- Combined CSS (Layout + Reference Styles) -->
+    <style>
+      /* ------------------------------
+         GLOBAL & BASIC STYLES
+      --------------------------------*/
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #1e1e1e;
+        color: #ccc;
+        font-family: "Inter", sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* ------------------------------
+         HEADER SECTION
+      --------------------------------*/
+      .main-header {
+        position: relative;
+        padding: 7.5% 15% 2rem;
+        text-align: left;
+        background: #1e1e1e;
+        border-bottom: 1px solid #1e1e1e;
+      }
+      .main-header .dragon-image {
+        position: absolute;
+        top: 2%;
+        right: 15%;
+        width: 30%;
+        height: auto;
+      }
+      .project-title {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #fff;
+      }
+      .module-title {
+        font-size: 0.9rem;
+        color: #ffffff;
+      }
+      .bounty-text {
+        font-size: 0.9rem;
+        color: #ffdb66;
+      }
+      .instructions {
+        max-width: 650px;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        color: #ffffff;
+      }
+
+      /* ------------------------------
+         MAIN LAYOUT
+      --------------------------------*/
+      .layout {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 2% 15.5%;
+      }
+
+      /* ------------------------------
+         LEFT COLUMN: Data Field Section
+      --------------------------------*/
+      .data-field-section {
+        flex: 1 1 300px;
+        background-color: #1e1e1e;
+        border-radius: 8px;
+        min-width: 280px;
+      }
+      .data-field-section h2 {
+        margin-top: 0;
+        font-size: 1rem;
+        color: #ffffff;
+      }
+      .data-field-section table {
+        width: 90%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+        margin-left: 1rem;
+      }
+      .data-field-section td {
+        padding: 6px 0;
+        vertical-align: middle;
+        color: #ffffff;
+        font-size: 0.9rem;
+      }
+      .data-field-section td strong {
+        display: inline-block;
+        min-width: 130px;
+        color: #ffffff;
+      }
+      .data-field-section img {
+        vertical-align: middle;
+        border-radius: 4px;
+      }
+
+      /* ------------------------------
+         RIGHT COLUMN: Output Section
+      --------------------------------*/
+      .output-section {
+        flex: 1 1 500px;
+        background-color: #1e1e1e;
+        border-radius: 8px;
+        min-width: 320px;
+      }
+      .output-section h2 {
+        color: rgb(255, 255, 255);
+        margin-left: 1rem;
+      }
+
+      /* ------------------------------
+         UPDATED CONTAINER DESIGN
+      --------------------------------*/
+      :root {
+        --primary-color: #2070cb;
+        --background-dark: #1b2240;
+        --text-light: #FAFAFA;
+        --danger-color: #ff1c4d;
+        --success-color: #00C851;
+        --card-bg: rgba(255, 255, 255, 0.05);
+      }
+      .container {
+        background-color: #100c1c;
+        padding: 6px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        margin: 1rem;
+      }
+
+      /* ------------------------------
+         UPDATED SEARCH HEADER
+      --------------------------------*/
+      .search-header {
+        display: flex;
+        padding: 8px;
+        background: var(--card-bg);
+        border-radius: 8px;
+        margin-bottom: 0;
+      }
+      .search-header input.address-input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 8px 12px;
+        border-radius: 6px;
+        color: var(--text-light);
+        font-size: 13px;
+        outline: none;
+      }
+      .search-header input.address-input:focus {
+        border-color: var(--primary-color);
+      }
+
+      /* ------------------------------
+         UPDATED TOKEN HEADER
+      --------------------------------*/
+      .token-header {
+        background: var(--card-bg);
+        padding: 4px;
+        margin-bottom: 2px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .header-row {
+        display: grid;
+        grid-template-columns: 70px 1fr 1fr;
+        gap: 2px;
+        align-items: center;
+        margin-bottom: 0;
+      }
+      .image-column {
+        width: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .token-image-placeholder {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .token-image-placeholder img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .name-column {
+        background: var(--card-bg);
+        padding: 6px;
+        border-radius: 6px;
+      }
+      .name-column h3 {
+        font-size: 12px;
+        margin: 0 0 2px 0;
+        opacity: 0.7;
+      }
+      .name-column p {
+        font-size: 14px;
+        margin: 0 0 10px 0;
+        font-weight: 500;
+        color: var(--text-light);
+      }
+      .token-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        margin-top: 1px;
+      }
+      .token-stat-item {
+        text-align: center;
+        background: var(--card-bg);
+        padding: 2px;
+        border-radius: 3px;
+      }
+      .token-stat-item h4 {
+        font-size: 11px;
+        margin: 0 0 1px 0;
+        opacity: 0.7;
+      }
+      .token-stat-item p {
+        margin: 0;
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--text-light);
+      }
+      .cap-column {
+        background: var(--card-bg);
+        padding: 6px;
+        border-radius: 6px;
+      }
+      .cap-column h3 {
+        font-size: 12px;
+        margin: 0 0 2px 0;
+        opacity: 0.7;
+      }
+      .cap-column p {
+        font-size: 14px;
+        margin: 0 0 15px 0;
+        font-weight: 500;
+        color: var(--text-light);
+      }
+      .security-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+        margin-top: 2px;
+      }
+      .security-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1px;
+        font-size: 11px;
+        background: var(--card-bg);
+        padding: 10px;
+        border-radius: 3px;
+        text-align: center;
+      }
+      .security-item i {
+        font-size: 11px;
+      }
+      .security-item span {
+        font-size: 7.5px;
+      }
+      .success {
+        color: var(--success-color);
+      }
+      .danger {
+        color: var(--danger-color);
+      }
+      .platform-links {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr) 12px repeat(3, 1fr);
+        gap: 8px;
+        margin: 5px auto;
+        width: calc(100% - 16px);
+        justify-content: center;
+        align-items: center;
+      }
+      .platform-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 6px;
+        color: var(--text-light);
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+      .platform-link:hover {
+        background: rgba(255, 255, 255, 0.12);
+        transform: translateY(-1px);
+        color: var(--primary-color);
+      }
+      .platform-link.inactive {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .platform-link-spacer {
+        width: 12px;
+      }
+
+      /* ------------------------------
+         CLUSTER CHART SECTION
+      --------------------------------*/
+      .chart-section {
+        background: #100c1c;
+        border-radius: 8px;
+        padding: 16px;
+      }
+      .chart-section h3 {
+        margin-top: 0;
+        font-size: 14px;
+        margin-bottom: 12px;
+        color: var(--text-light);
+        text-align: center;
+      }
+      .chart-wrapper {
+        width: 100%;
+        height: 200px;
+        position: relative;
+      }
+      .chart-wrapper canvas {
+        width: 100% !important;
+        height: 100% !important;
+      }
+      .chart-stat {
+        text-align: center;
+        margin-top: 8px;
+      }
+      .chart-stat strong {
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <div class="main-header">
+      <img src="images/logo.gif" alt="Dragon" class="dragon-image" />
+      <h1 class="project-title">Project: Dragon</h1>
+      <h2 class="module-title">Module: Cluster Analysis</h2>
+      <p class="bounty-text">Bounty: 0.15% of $DRAGON supply</p>
+      <p class="instructions">
+        Please paste an SPL token contract address in the field provided
+        to test the functionality of your code. Your data outputs are
+        defined in the readme on your main branch. Good luck and godspeed!
+      </p>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="layout">
+      <!-- Left Column: Data Field Section -->
+      <div class="data-field-section">
+        <h2>Data Field</h2>
+        <table>
+          <tbody>
+            <!-- Example cluster fields. IDs will be updated via JS. -->
+            <tr>
+              <td><strong>Total % in active clusters:</strong></td>
+              <td><span id="activeClusterPercent">No Data</span></td>
+            </tr>
+            <tr>
+              <td><strong># of wallets in cluster 1:</strong></td>
+              <td><span id="cluster1Wallets">No Data</span></td>
+            </tr>
+            <tr>
+              <td><strong>% active in cluster 1:</strong></td>
+              <td><span id="cluster1Percent">No Data</span></td>
+            </tr>
+            <tr>
+              <td><strong># of wallets in cluster 2:</strong></td>
+              <td><span id="cluster2Wallets">No Data</span></td>
+            </tr>
+            <tr>
+              <td><strong>% active in cluster 2:</strong></td>
+              <td><span id="cluster2Percent">No Data</span></td>
+            </tr>
+            <tr>
+              <td><strong># of wallets in cluster 3:</strong></td>
+              <td><span id="cluster3Wallets">No Data</span></td>
+            </tr>
+            <tr>
+              <td><strong>% active in cluster 3:</strong></td>
+              <td><span id="cluster3Percent">No Data</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Right Column: Output Section -->
+      <div class="output-section">
+        <!-- Search Address Title -->
+        <h2>Enter Contract Address</h2>
+        <div class="container">
+          <!-- Updated Search Header -->
+          <div class="search-header">
+            <input
+              type="text"
+              class="address-input"
+              placeholder="Enter contract address..."
+            />
+          </div>
+        </div>
+
+        <h2>Module Output</h2>
+        
+        <!-- Cluster Chart Container -->
+        <div class="container chart-section">
+          <h3>Clusters</h3>
+          <div class="chart-wrapper">
+            <canvas id="clusterChart"></canvas>
+          </div>
+          <div class="chart-stat">
+            Active Holding: <strong id="activeHoldingStat">No Data</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS Libraries -->
+    <script src="lib/chart.js"></script>
+    <script src="lib/fontawesome/js/all.min.js"></script>
+
+    <!-- Main Chart Logic -->
+    <script src="js/charts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Holder Analysis Only</title>
+    <!-- Include Chart.js (adapt the path as needed) -->
+    <script src="lib/chart.js"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+
+  </head>
+  <body>
+    <div class="container">
+      <!-- Contract Address Search -->
+      <div class="search-header">
+        <input type="text" class="address-input" placeholder="Enter contract address..." />
+      </div>
+
+      <!-- Holder Analysis Section -->
+      <div class="holder section">
+        <div class="carousel-controls">
+          <button id="prevBtn" class="nav-arrow"><</button>
+          <h4>Holder Analysis</h4>
+          <button id="nextBtn" class="nav-arrow">></button>
+        </div>
+        <div class="holders-analysis-carousel">
+          <!-- Sub‑views: Clusters, Top Holders -->
+          <div class="analysis-view" id="clustersView">
+            <div class="chart-box">
+              <h5>Clusters</h5>
+              <div class="chart-wrapper">
+                <canvas id="clusterChart"></canvas>
+              </div>
+              <div class="chart-stat">Active Holding: <strong>No Data</strong></div>
+            </div>
+          </div>
+          <div class="analysis-view" id="topHoldersView">
+            <div class="chart-box">
+              <h5>Top 10 Holders</h5>
+              <div class="chart-wrapper">
+                <canvas id="holdersChart"></canvas>
+              </div>
+              <div class="chart-stat">
+                Total Holdings: <strong id="totalHoldingsValue">No Data</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main logic script -->
+    <script src="js/charts.js"></script>
+    </body>
+</html>
