@@ -19,8 +19,9 @@ Soon, Dragon will produce analyses on many other holder distributions and decept
   - [Folder Structure](#folder-structure)
   - [Setup \& Installation](#setup--installation)
   - [Current Modules \& Bounties](#current-modules--bounties)
-    - [Token Info Analysis](#token-info-analysis)
-    - [Data Field Explanations](#data-field-explanations)
+    - [Cluster Analysis](#cluster-analysis)
+    - [Data Fields Explanation](#data-fields-explanation)
+    - [Module Output](#module-output)
   - [Using Helius RPC for Open Source Integration](#using-helius-rpc-for-open-source-integration)
   - [Future Bounties \& Modules](#future-bounties--modules)
   - [Contributing](#contributing)
@@ -144,86 +145,34 @@ dragon-data-modules/
 
  The details for the Module (Token Info)  are outlined below:
 
-### Token Info Analysis
 
-- **Build:** Token Info  
-- **Bounty:** 0.xx% of $DRAGON supply  
-- **Details:**  
-  The front-end is built. We need to build an RPC pipeline via our Helius node to fetch detailed token information, such as the ticker, thumbnail image, token age, market cap, number of holders, and more.
-
-- **Job Repo:**  
-  See job, Go to repo
+### Cluster Analysis
+- **Build:** Cluster Analysis
+- **Bounty:** 0.xx% of $DRAGON supply
+- **Details:**
+  The front-end is built. Your goal is to build an RPC pipeline via our Helius node that retrieves data on wallet clusters. This includes the total percentage of tokens held in active clusters, the number of wallets per cluster, and the activity percentage of each cluster.
+- **Job Repo:** See job, Go to repo
 
 ---
 
-### Data Field Explanations
+### Data Fields Explanation
 
-1. **Thumbnail**  
-   A small image or icon that visually represents the token.
+- **Total % in Active Clusters:**  
+  *Example:* `Total % in active clusters`
 
-2. **Ticker**  
-   The abbreviated symbol for the token.  
-   **Example:** `$Prawn`
+- **# of Wallets in Each Cluster:**  
+  *Example:* `# of wallets in each cluster`
 
-3. **Age**  
-   How long the token has been in existence.  
-   **Example:** `1 d` (1 day old)
+- **% Active in Each Cluster(Metadata):**  
+  *Example:* `% active in each cluster`
 
-4. **Holders**  
-   The number of distinct wallet addresses currently holding the token.  
-   **Example:** `>150`
+---
 
-5. **CTO or Dev**  
-   Indicates the chief technical officer or developer responsible for the token.  
-   **Example:** `Dev`
+### Module Output
 
-6. **Market Cap**  
-   The total value (in USD) of all tokens in circulation.  
-   **Example:** `$584,887`
+- **Actively Holding(Total % of holdings in clusters):**  
+  *Example:* `10.44%`
 
-7. **Mint Auth**  
-   Specifies whether there is authority to mint (create) additional tokens.  
-   **Example:** `Mint`
-
-8. **Freeze Auth**  
-   Specifies whether there is authority to freeze or lock token transfers.  
-   **Example:** `Freeze`
-
-9. **Liquidity Locked**  
-   Shows whether the liquidity for the token is locked, preventing large early withdrawals.  
-   **Example:** `Locked`
-
-10. **Dex Paid**  
-    Indicates if fees or payments have been made to list the token on a decentralized exchange.  
-    **Example:** `Loading...`
-
-11. **Photon Sol**  
-    A link to Photon Sol or a relevant analytics platform.  
-    **Example:** `Link`
-
-12. **Pump.fun**  
-    A link to the Pump.fun page for this token.  
-    **Example:** `Link`
-
-13. **Solscan Link**  
-    A link to the token’s page on the Solscan block explorer.  
-    **Example:** `Link`
-
-14. **Dexscreener Link**  
-    A link to the token’s page on Dexscreener for price charts and trading info.  
-    **Example:** `Link`
-
-15. **Twitter Link**  
-    A link to the official Twitter account for the token/project.  
-    **Example:** `Link`
-
-16. **Telegram Link**  
-    A link to the official Telegram community or announcements channel.  
-    **Example:** `Link`
-
-17. **Website Link**  
-    A link to the official website for the token/project.  
-    **Example:** `Link`
 
 ---
 
