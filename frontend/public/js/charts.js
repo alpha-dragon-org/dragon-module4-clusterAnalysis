@@ -34,7 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   async function sendContractAddressToBot(contractAddress) {
     const apiEndpoint =
-      'http://ec2-3-80-88-97.compute-1.amazonaws.com:3001/sendContractAddress';
+      // 'http://ec2-3-80-88-97.compute-1.amazonaws.com:3001/sendContractAddress';
+      'http://localhost:3001/sendContractAddress';
+
     const response = await fetch(apiEndpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -48,7 +50,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   async function clearAPIData() {
     const response = await fetch(
-      'http://ec2-3-80-88-97.compute-1.amazonaws.com:3000/clearData',
+      // 'http://ec2-3-80-88-97.compute-1.amazonaws.com:3000/clearData',
+      'http://localhost:3000/clearData',
+
       {
         method: 'POST',
       }
@@ -71,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     // Reset chart stat
     const chartStat = document.getElementById('activeHoldingStat');
-    if (chartStat) chartStat.textContent = 'No Data';
+    if (chartStat) chartStat.textContent = 'Loading...';
 
     // Reset data fields
     document.getElementById('activeClusterPercent').textContent = 'Loading...';
@@ -81,6 +85,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('cluster2Percent').textContent = 'Loading...';
     document.getElementById('cluster3Wallets').textContent = 'Loading...';
     document.getElementById('cluster3Percent').textContent = 'Loading...';
+    document.getElementById('cluster4Wallets').textContent = 'Loading...';
+    document.getElementById('cluster4Percent').textContent = 'Loading...';
+    document.getElementById('cluster5Wallets').textContent = 'Loading...';
+    document.getElementById('cluster5Percent').textContent = 'Loading...';
     console.log('[INFO] Chart and data fields reset.');
   }
 
@@ -185,6 +193,31 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('cluster3Percent').textContent = '0%';
     }
 
+
+    // cluster4 data
+    if (chartData[4]) {
+      document.getElementById('cluster4Wallets').textContent =
+        chartData[4].wallets.length;
+      document.getElementById('cluster4Percent').textContent =
+        `${chartData[4].value.toFixed(2)}%`;
+    } else {
+      document.getElementById('cluster4Wallets').textContent = '0';
+      document.getElementById('cluster4Percent').textContent = '0%';
+    }
+
+
+    // cluster5 data
+    if (chartData[5]) {
+      document.getElementById('cluster5Wallets').textContent =
+        chartData[5].wallets.length;
+      document.getElementById('cluster5Percent').textContent =
+        `${chartData[5].value.toFixed(2)}%`;
+    } else {
+      document.getElementById('cluster5Wallets').textContent = '0';
+      document.getElementById('cluster5Percent').textContent = '0%';
+    }
+
+
     // 7) Build polar chart data
     const backgroundColors = chartData.map((item, index) => {
       if (index === 0) return 'rgba(128, 128, 128, 1)'; // grey for "Others"
@@ -269,7 +302,10 @@ document.addEventListener('DOMContentLoaded', function () {
   async function fetchClusterData() {
     try {
       const response = await fetch(
-        'http://ec2-3-80-88-97.compute-1.amazonaws.com:3000/fetchData'
+        // 'http://ec2-3-80-88-97.compute-1.amazonaws.com:3000/fetchData'
+        'http://localhost:3000/fetchData'
+
+        
       );
       if (!response.ok) {
         throw new Error(`Cluster fetch error: ${response.status}`);
