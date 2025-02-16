@@ -90,7 +90,7 @@ dragon-data-modules/
 
    ```bash
    git clone https://github.com/alpha-dragon-dev/dragon-module4-clusterAnalysis.git
-   cd dragon-data-modules
+   cd dragon-module4-clusterAnalysis
    ```
 
 2. **Install Dependencies:**
