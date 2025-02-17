@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const tokenData = data.find((item) => item.walletList);
     if (!tokenData || !Array.isArray(tokenData.walletList)) {
       console.error('[Clusters] Invalid or missing walletList.');
-      if (chartStatElement) chartStatElement.textContent = 'No Data';
+      if (chartStatElement) chartStatElement.textContent = 'Loading...';
       return;
     }
 
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (totalExcludingMax > 0) {
         chartStatElement.textContent = `${totalExcludingMax.toFixed(2)}%`;
       } else {
-        chartStatElement.textContent = 'No Data';
+        chartStatElement.textContent = 'N/A';
       }
     }
 
