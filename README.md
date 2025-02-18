@@ -6,7 +6,7 @@ Dragon is a browser extension that visualizes the power concentrations of any to
 - The overview of a token's holder wallets that have transferred freely between themselves, instead of buying directly from an exchange. There are two types of token transfers included in this definition:  
   - A) SOL
   - B) The token of interest  
-- The specific data to be analyzed includes total number of active clusters, total percentage held in active clusters, number of wallets per cluster, and more.  
+- The specific data to be analyzed includes total percentage held in active clusters, number of wallets per cluster, and more.  
 - You can learn more about clusters in this documentation from Bubblemaps.
   
 Soon, developers will contribute their own modules to Dragon based on what they think is important for traders to know when in the trenches. 
@@ -151,14 +151,17 @@ dragon-data-modules/
 
 ### Data To Fetch
 
-- **Total % in Active Clusters:**  
-  **Example Output:** `Total % in active clusters`
+- **Total % in active clusters:**  
+  The total amount of token supply actively held, in wallets that transferred tokens or SOL with one another.  
+  **Example Output:** `14.7`
 
-- **# of Wallets in Each Cluster:**  
-  **Example Output:** `# of wallets in each cluster`
+- **# of wallets per active cluster:**  
+  The number of distinct wallets within a single cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
+  **Metadata Example:** `4`
 
-- **% Active in Each Cluster(Metadata):**  
-  **Example Output:** `% active in each cluster`
+- **% active per active cluster**  
+  The amount of token supply active within a single cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
+   **Metadata Example:** `30.0`
 
 ### Module Output
 
