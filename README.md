@@ -152,22 +152,18 @@ dragon-data-modules/
 ### Data To Fetch
 
 - **Total % in active clusters:**  
-  The total amount of token supply actively held, in wallets that transferred tokens or SOL with one another.  
+  The total amount of token supply actively held, in wallets that transferred the token or SOL with one another.  
   **Example Output:** `14.7`
 
-- **# of wallets per active cluster:**  
-  The number of distinct wallets within a single cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
-  **Metadata Example:** `4`
+- **Metadata for each cluster**
 
-- **% active per active cluster**  
-  The amount of token supply active within a single cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
-   **Metadata Example:** `30.0`
+  - **# of wallets in cluster**  
+  The number of distinct wallets within the cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
+  **Example Output:** `4`
 
-### Module Output
-
-- **Actively Holding(Total % of holdings in clusters):**  
-  *Example:* `10.44%`
-
+  - **% active in cluster**  
+  The amount of token supply actively held within the cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
+  **Example Output:** `3.5`
 
 ---
 
