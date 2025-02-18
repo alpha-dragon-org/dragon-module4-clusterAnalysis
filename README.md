@@ -2,8 +2,12 @@
 
 Dragon is a browser extension that visualizes the power concentrations of any token on the Solana blockchain. The extension is separated into "data-modules" that produce different analyses on a token's holders. This initial release includes four data-modules, and the module of focus for this bounty is:
 
-**4. Holder Analysis**
-- Currently two analyses of a token's holders: wallet clusters and Top 10. A cluster is a group of wallets that have transferred the token between themselves instead of buying it from an exchange.
+**4. Cluster Analysis**  
+- The overview of a token's holder wallets that have transferred freely between themselves, instead of buying directly from an exchange. There are two types of token transfers included in this definition:  
+  - A) SOL
+  - B) The token of interest  
+- The specific data to be analyzed includes total number of active clusters, total percentage held in active clusters, number of wallets per cluster, and more.  
+- You can learn more about clusters in this documentation from Bubblemaps.
   
 Soon, developers will contribute their own modules to Dragon based on what they think is important for traders to know when in the trenches. 
 
