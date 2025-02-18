@@ -201,7 +201,7 @@ If you have an idea for a data-module that could benefit traders in the trenches
 4. **Commit your changes.**
 
    ```bash
-   git commit -am 'Add new module for XYZ'
+   git commit -am 'Add updated module for XYZ'
    ```
 
 5. **Push the branch.**
