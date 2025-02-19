@@ -5,7 +5,7 @@ Dragon is a browser extension that visualizes the power concentrations of any to
 The Alpha-Dragon includes four data-modules, and the module of focus for this bounty is:
 
 **4. Cluster Analysis**  
-- This module will display an overview of all the holder wallets that have transferred the token freely between themselves, instead of buying it directly from an exchange. Our defintion of cluster at this stage includes three types of transfers between holder wallets: `A) SOL`, `B) The token of interest`, OR `C) SOL and/or the token of interest` (more details below under [**Cluster type**](#module-details)). The specific data to be retrieved includes total % held in active clusters, # of wallets per cluster, and more. You can learn more about clusters from this Bubblemaps [video](https://youtu.be/WGLXQgMNTAg?si=KG_t_7k7GCNvqfQ_). We understand that our definition is a smaller scope than theirs at the moment.
+- This module will display an overview of all the holder wallets that have transferred the token freely between themselves, instead of buying it directly from an exchange. Our defintion of cluster at this stage includes three types of transfers between holder wallets: `A) SOL`, `B) The token of interest`, OR `C) SOL and/or the token of interest` (more details in the [example](#module-details) below). The specific data to be retrieved includes total % held in active clusters, # of wallets per cluster, and more. You can learn more about clusters from this Bubblemaps [video](https://youtu.be/WGLXQgMNTAg?si=KG_t_7k7GCNvqfQ_). We understand that our definition is a smaller scope than theirs at the moment.
   
 ---
 
@@ -145,6 +145,10 @@ dragon-data-modules/
 - **Bounty:** 0.10% of $DRAGON supply  
 - **Goals:** Retrieve all data below in real-time and with extremely high accuracy.
   
+### Cluster Example
+
+A cluster is any group of wallets that interact in 1 of 3 ways: `SOL transfer`, `Token transfer`, OR `Combo`. A `Combo` cluster could be when Wallet A sends SOL to Wallet B and then sends the token of interest to Wallet C. We would aggregate the % of token held between the 3 of these wallets, and call them one cluster.  
+  
 ### Data To Fetch
 
 - **Total % in active clusters:**  
@@ -154,26 +158,18 @@ dragon-data-modules/
 - **Metadata for each active cluster**
 
   - **% active in cluster**  
-  The amount of token supply actively held within the cluster, as defined [above](#intro-to-dragon-data-modules). There may be multiple values to fetch, depending on the total # of active clusters.  
+  The amount of token supply actively held within the cluster, as defined [above](###cluster example). There may be multiple values to fetch, depending on the total # of active clusters.  
   **Example Output:** `3.5`
     
   - **# of wallets in cluster**  
   The number of distinct wallets within the cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
   **Example Output:** `4`
-
-  - **Cluster type**  
-  Could be 1 of 3 options: `SOL cluster`, `Token cluster`, or `Combo`. `Combo` could mean that Wallet A sends SOL to Wallet B and also sends the token of interest to Wallet C. In this scenario, wallets A, B, and C would be considered 1 cluster, and we would aggregate the % of token held between the 3 of them.  
-  **Example Output:** `Combo`
     
 - **Metadata for each inactive cluster**
 
   - **# of wallets in cluster**  
   The number of distinct wallets within the cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
   **Example Output:** `4`
-
-  - **Cluster type**  
-  The type of cluster could be 1 of 3 options: SOL cluster, Token cluster, or Combo.  
-  **Example Output:** `DOGEAI`
 
 ### Module Output
 
