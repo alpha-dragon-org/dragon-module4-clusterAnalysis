@@ -5,7 +5,7 @@ Dragon is a browser extension that visualizes the power concentrations of any to
 The Alpha-Dragon includes four data-modules, and the module of focus for this bounty is:
 
 **4. Cluster Analysis**  
-- This module will display an overview of all the holder wallets that have transferred the token freely between themselves, instead of buying it directly from an exchange. Our defintion of cluster at this stage includes three types of transfers between holder wallets: `A) SOL`, `B) The token of interest`, OR `C) SOL and/or the token of interest` (more details in the [example](#module-details) below). The specific data to be retrieved includes total % held in active clusters, # of wallets per cluster, and more. You can learn more about clusters from this Bubblemaps [video](https://youtu.be/WGLXQgMNTAg?si=KG_t_7k7GCNvqfQ_). We understand that our definition is a smaller scope than theirs at the moment.
+- This module will display an overview of all the holder wallets that have transferred the token freely between themselves, instead of buying it directly from an exchange. Our defintion of cluster at this stage includes three types of transfers between holder wallets: `A) SOL`, `B) The token of interest`, OR `C) SOL and/or the token of interest` (more details in the [example](#module-details) below). The specific data to be retrieved includes total % held in active clusters, # of wallets per cluster, and more. You can learn more about clusters in [this video](https://youtu.be/WGLXQgMNTAg?si=KG_t_7k7GCNvqfQ_) from Bubblemaps. We understand that our definition is a smaller scope than theirs at the moment.
   
 ---
 
