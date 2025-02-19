@@ -149,13 +149,17 @@ dragon-data-modules/
 
 A cluster is any group of wallets that interact in 1 of 3 ways: `SOL transfer`, `Token transfer`, OR `Combo`. A `Combo` cluster could be when Wallet A sends SOL to Wallet B and then sends the token of interest to Wallet C. We would aggregate the % of token held between the 3 of these wallets, and call them one cluster.  
 
+[insert diagram]
 
-  
 ### Data To Fetch
 
 - **Total % in active clusters:**  
   The total amount of token supply actively held, in wallets that transferred the token or SOL between themselves.  
   **Example Output:** `14.7`
+
+- **Total # of active clusters**  
+  The total number of clusters that are still holding token supply.  
+   **Example Output:** `3`
 
 - **Metadata for each active cluster**
 
@@ -167,10 +171,14 @@ A cluster is any group of wallets that interact in 1 of 3 ways: `SOL transfer`, 
   The number of distinct wallets within the cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
   **Example Output:** `4`
     
+- **Total # of inactive clusters**  
+  The total number of clusters that are no logner holding token supply, ie. all have sold to 0%.  
+   **Example Output:** `12`
+
 - **Metadata for each inactive cluster**
 
   - **# of wallets in cluster**  
-  The number of distinct wallets within the cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
+  The number of distinct wallets within the cluster. There may be multiple values to fetch, depending on the total # of inactive clusters.  
   **Example Output:** `4`
 
 ### Module Output
