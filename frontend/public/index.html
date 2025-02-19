@@ -87,7 +87,7 @@
         min-width: 280px;
       }
       .data-field-section h2 {
-        margin-top: 0;
+        padding-top: 12px;
         font-size: 1rem;
         color: #ffffff;
       }
@@ -124,7 +124,11 @@
       }
       .output-section h2 {
         color: rgb(255, 255, 255);
-        margin-left: 1rem;
+        margin-left: 0.5rem;
+      }
+      .output-section h4 {
+        color: rgb(255, 255, 255);
+        margin-left: 0.5rem;
       }
 
       /* ------------------------------
@@ -254,6 +258,7 @@
         padding: 2px;
         border-radius: 3px;
       }
+
       .token-stat-item h4 {
         font-size: 11px;
         margin: 0 0 1px 0;
@@ -383,7 +388,7 @@
       <img src="images/logo.gif" alt="Dragon" class="dragon-image" />
       <h1 class="project-title">Project: Dragon</h1>
       <h2 class="module-title">Module: Cluster Analysis</h2>
-      <p class="bounty-text">Bounty: 0.15% of $DRAGON supply</p>
+      <p class="bounty-text">Bounty: 0.1% of $DRAGON supply</p>
       <p class="instructions">
         Please paste an SPL token contract address in the field provided
         to test the functionality of your code. Your data outputs are
@@ -403,6 +408,12 @@
               <td><strong>Total % in active clusters:</strong></td>
               <td><span id="activeClusterPercent">N/A</span></td>
             </tr>
+          </tbody>
+        </table>
+        <br>
+        <h2>Metadata</h2>
+        <table>
+          <tbody>
             <tr>
               <td><strong># of wallets in cluster 1:</strong></td>
               <td><span id="cluster1Wallets">N/A</span></td>
@@ -447,12 +458,14 @@
             </tr>
           </tbody>
         </table>
+
+
       </div>
 
       <!-- Right Column: Output Section -->
       <div class="output-section">
         <!-- Search Address Title -->
-        <h2>Enter Contract Address</h2>
+        <h4>Enter Contract Address</h4>
         <div class="container">
           <!-- Updated Search Header -->
           <div class="search-header">
@@ -464,7 +477,7 @@
           </div>
         </div>
 
-        <h2>Module Output</h2>
+        <h4>Module Output (hover for metadata)</h4>
         
         <!-- Cluster Chart Container -->
         <div class="container chart-section">

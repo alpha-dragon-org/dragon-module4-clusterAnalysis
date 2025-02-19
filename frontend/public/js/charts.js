@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const tokenData = data.find((item) => item.walletList);
     if (!tokenData || !Array.isArray(tokenData.walletList)) {
       console.error('[Clusters] Invalid or missing walletList.');
-      if (chartStatElement) chartStatElement.textContent = 'Loading...';
+      if (chartStatElement) chartStatElement.textContent = 'N/A';
       return;
     }
 
