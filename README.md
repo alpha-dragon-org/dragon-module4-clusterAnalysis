@@ -3,11 +3,12 @@
 Dragon is a browser extension that visualizes the power concentrations of any token on the Solana blockchain. The extension is separated into "data-modules" that produce different analyses on a token's holders. This initial release includes four data-modules, and the module of focus for this bounty is:
 
 **4. Cluster Analysis**  
-- The overview of a token's holder wallets that have transferred freely between themselves, instead of buying directly from an exchange. There are two types of token transfers included in this definition:  
+- The overview of a token's holder wallets that have transferred freely between themselves, instead of buying directly from an exchange. Our defintion of cluster includes three types of transfers between holder wallets:  
   - A) SOL
-  - B) The token of interest  
+  - B) The token of interest
+  - C) SOL and/or the token of interest (more details [below](#module-details))
 - The specific data to be analyzed includes total percentage held in active clusters, number of wallets per cluster, and more.  
-- You can learn more about clusters in this documentation from Bubblemaps.
+- You can learn more about clusters from this [video](https://youtu.be/WGLXQgMNTAg?si=KG_t_7k7GCNvqfQ_) from Bubblemaps. We understand that our defition is a smaller scope than theirs at the moment.
   
 Soon, developers will contribute their own modules to Dragon based on what they think is important for traders to know when in the trenches. 
 
@@ -155,7 +156,7 @@ dragon-data-modules/
   The total amount of token supply actively held, in wallets that transferred the token or SOL with one another.  
   **Example Output:** `14.7`
 
-- **Metadata for each cluster**
+- **Metadata for each active cluster**
 
   - **# of wallets in cluster**  
   The number of distinct wallets within the cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
@@ -164,6 +165,20 @@ dragon-data-modules/
   - **% active in cluster**  
   The amount of token supply actively held within the cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
   **Example Output:** `3.5`
+
+  - **Cluster type**
+  The type of cluster could be 1 of 3 options: SOL cluster, Token cluster, or Combo. Combo could mean that wallet A sends SOL to wallet B and also sends the token of interest to wallet C. In this scenario, wallets A, B, and C would be considered 1 cluster, and we aggregate the % of token held between the 3 of them.
+  **Example Output:** `BOTH`
+    
+- **Metadata for each inactive cluster**
+
+  - **# of wallets in cluster**  
+  The number of distinct wallets within the cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
+  **Example Output:** `4`
+
+- **Type of cluster**
+  The type of cluster could be 1 of 3 options: SOL cluster, Token cluster, or COMBO.
+  **Example Output:** `BOTH`
 
 ### Module Output
 
