@@ -168,7 +168,7 @@ dragon-data-modules/
 
   - **Cluster type**
   The type of cluster could be 1 of 3 options: SOL cluster, Token cluster, or Combo. Combo could mean that wallet A sends SOL to wallet B and also sends the token of interest to wallet C. In this scenario, wallets A, B, and C would be considered 1 cluster, and we aggregate the % of token held between the 3 of them.  
-  **Example Output:** `COMBO`
+  **Example Output:** `Combo`
     
 - **Metadata for each inactive cluster**
 
@@ -176,8 +176,8 @@ dragon-data-modules/
   The number of distinct wallets within the cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
   **Example Output:** `4`
 
-- **Type of cluster**
-  The type of cluster could be 1 of 3 options: SOL cluster, Token cluster, or COMBO.  
+  - **Cluster type**
+  The type of cluster could be 1 of 3 options: SOL cluster, Token cluster, or Combo.  
   **Example Output:** `DOGEAI`
 
 ### Module Output
