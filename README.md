@@ -1,17 +1,12 @@
 # Intro to Dragon Data-Modules
 
-Dragon is a browser extension that visualizes the power concentrations of any token on the Solana blockchain. The extension is separated into "data-modules" that produce different analyses on a token's holders. This initial release includes four data-modules, and the module of focus for this bounty is:
+Dragon is a browser extension that visualizes the power concentrations of any token on the Solana blockchain. The extension is separated into "data-modules" that produce different analyses on a token's holders. Soon, developers will contribute their own modules to Dragon based on what they think is important for traders to know when in the trenches. 
+
+The Alpha-Dragon includes four data-modules, and the module of focus for this bounty is:
 
 **4. Cluster Analysis**  
-- The overview of a token's holder wallets that have transferred freely between themselves, instead of buying directly from an exchange. Our defintion of cluster includes three types of transfers between holder wallets:  
-  - A) SOL
-  - B) The token of interest
-  - C) SOL and/or the token of interest (more details [below](#module-details))
-- The specific data to be analyzed includes total percentage held in active clusters, number of wallets per cluster, and more.  
-- You can learn more about clusters from this [video](https://youtu.be/WGLXQgMNTAg?si=KG_t_7k7GCNvqfQ_) from Bubblemaps. We understand that our defition is a smaller scope than theirs at the moment.
+- This module will display an overview of all the holder wallets that have transferred the token freely between themselves, instead of buying it directly from an exchange. Our defintion of cluster at this stage includes three types of transfers between holder wallets: `A) SOL`, `B) The token of interest`, OR `C) SOL and/or the token of interest` (more details below under [**Cluster type**](#module-details)). The specific data to be retrieved includes total % held in active clusters, # of wallets per cluster, and more. You can learn more about clusters from this Bubblemaps [video](https://youtu.be/WGLXQgMNTAg?si=KG_t_7k7GCNvqfQ_). We understand that our definition is a smaller scope than theirs at the moment.
   
-Soon, developers will contribute their own modules to Dragon based on what they think is important for traders to know when in the trenches. 
-
 ---
 
 ## Table of Contents
@@ -23,7 +18,7 @@ Soon, developers will contribute their own modules to Dragon based on what they 
   - [Setup \& Installation](#setup--installation)
   - [Module Details](#module-details)
   - [Bounty Selection Criteria](#bounty-selection-criteria)
-  - [Using Helius RPC for Integration](#using-helius-rpc-for-integration)
+  - [Integrating RPCs For Data Retrieval](#integrating-rpcs-for-data-retrieval)
   - [Contributing](#contributing)
   - [Future Bounties](#future-bounties)
   - [Issues](#issues)
@@ -33,9 +28,9 @@ Soon, developers will contribute their own modules to Dragon based on what they 
 
 ## Contribution Overview
 
-Each of Dragon's first four modules currently gathers data by web-scraping TrenchyBot, TrenchRadar, and Bubblemaps. The task is to build a pipeline that connects the Token Info module with a Solana RPC (ie. [Helius](https://www.helius.dev)) and replace all scrapes. If any data can not be retrieved from the RPC, the developer can use whatever means necessary given the goals stated in [Module Details](#module-details) below.
+This module currently gathers data by web-scraping Bubblemaps. The task is to build a pipeline that connects this module with a Solana RPC (eg. [Helius](https://www.helius.dev)) and replace all scrapes. If any data can not be retrieved from RPC, the developer can use whatever means necessary given the goals stated in the [Module Details](#module-details) below.
 
-By fetching real-time data directly from a node, Dragon will become an unbeatable companion in the trenches.
+If the data retrieved is as close to real-time as possible, Dragon will become an unbeatable companion in the trenches.
 
 ---
 
@@ -153,21 +148,21 @@ dragon-data-modules/
 ### Data To Fetch
 
 - **Total % in active clusters:**  
-  The total amount of token supply actively held, in wallets that transferred the token or SOL with one another.  
+  The total amount of token supply actively held, in wallets that transferred the token or SOL between themselves.  
   **Example Output:** `14.7`
 
 - **Metadata for each active cluster**
 
+  - **% active in cluster**  
+  The amount of token supply actively held within the cluster, as defined [above](#intro-to-dragon-data-modules). There may be multiple values to fetch, depending on the total # of active clusters.  
+  **Example Output:** `3.5`
+    
   - **# of wallets in cluster**  
   The number of distinct wallets within the cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
   **Example Output:** `4`
 
-  - **% active in cluster**  
-  The amount of token supply actively held within the cluster. There may be multiple values to fetch, depending on the total # of active clusters.  
-  **Example Output:** `3.5`
-
   - **Cluster type**  
-  The type of cluster could be 1 of 3 options: SOL cluster, Token cluster, or Combo. Combo could mean that wallet A sends SOL to wallet B and also sends the token of interest to wallet C. In this scenario, wallets A, B, and C would be considered 1 cluster, and we aggregate the % of token held between the 3 of them.  
+  Could be 1 of 3 options: `SOL cluster`, `Token cluster`, or `Combo`. `Combo` could mean that Wallet A sends SOL to Wallet B and also sends the token of interest to Wallet C. In this scenario, wallets A, B, and C would be considered 1 cluster, and we would aggregate the % of token held between the 3 of them.  
   **Example Output:** `Combo`
     
 - **Metadata for each inactive cluster**
@@ -182,25 +177,27 @@ dragon-data-modules/
 
 ### Module Output
 
-We have included a testing environment where you can see your live code displayed in the module. The live module will be interactive, meaning you can hover to reveal the metadata you retrieved for each cluster. *Note:* The module output only displays data for active clusters.
+We have included a testing environment where you can see your code displayed live in the module. The test module will be interactive, meaning you can hover to reveal the metadata per cluster. *Note:* The module output will only display active clusters.
 
 ---
 
 ## Bounty Selection Criteria
 
 We will select a recipient for this bounty based on the following criteria, in order of evaluation:
+
 1. A fully complete retrieval of the data outlined in [Module Details](#module-details)
-2. The highest accuracy for data retrieved in real-time
-3. The fastest speed for data retrieval
-4. If there is more than one developer to meet the above criteria, the first pull request will receive the bounty
+2. The highest accuracy for data retrieved
+3. The fastest speed for retrieval, updated within seconds to real-time
+   
+If there is more than one developer to meet the above criteria, the first pull request will receive the bounty.
 
 ---
 
-## Using Helius RPC for Integration
+## Integrating RPCs for Data Retrieval
 
-[Helius](https://www.helius.dev) is a powerful RPC service that enables quick and direct access to on-chain data on Solana. By integrating Helius RPC calls into Dragon's data-modules, we can **replace slow web-scraping techniques** and **increase data accuracy.** 
+[Helius](https://www.helius.dev) is an example of an RPC service that enables quick and direct access to on-chain data on Solana. By integrating RPCs into Dragon's data-modules, we can **replace slow web-scraping techniques** and **increase data accuracy.** 
 
-**How to update the code**
+**How to update the code (with Helius)**
 - **Modify the stub functions:** In files like `src/modules/tokenInfo.js` and `src/api/server.js`, update the stub implementations to call the appropriate Helius RPC endpoints.
 - **Leverage the configured endpoints:** Use the `HELIUS_RPC_URL` from `src/config/config.js` to ensure that your RPC calls are directed to the correct endpoint with your API key.
 - **Improve performance:** Integrate batching of RPC calls if necessary to further improve response time.
@@ -240,9 +237,9 @@ We will select a recipient for this bounty based on the following criteria, in o
 
 ## Future Bounties
 
-Dragon’s aim is to make token analyses more transparent and community-driven. After the initial four modules, bounties will expand to include more data-modules on holder analyses and deception analyses on token supply.
+Dragon’s aim is to make token analyses more transparent and community-driven. At the community's direction, bounties will expand to include more types of holder analyses and deception analyses on token supply.
 
-If you have an idea for a data-module that could benefit traders in the trenches, please propose it [here](https://github.com/alpha-dragon-org/dragon-module-openIdeas) to be considered for a bounty.
+If you have an idea for a data-module that could benefit traders in the trenches, please propose it in the discussion [here](https://github.com/alpha-dragon-org/dragon-module-openIdeas) to be considered for a bounty.
 
 ---
 ## Issues
