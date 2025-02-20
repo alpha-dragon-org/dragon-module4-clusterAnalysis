@@ -149,7 +149,8 @@ dragon-data-modules/
 
 A cluster is any group of wallets that interact in 1 of 3 ways: `SOL transfer`, `Token transfer`, OR `Combo`. A `Combo` cluster could be when Wallet A sends SOL to Wallet B and then sends the token of interest to Wallet C. We would aggregate the % of token held between the 3 of these wallets, and call them one cluster.  
 
-[insert diagram]
+![WhatsApp Image 2025-02-19 at 21 44 06](https://github.com/user-attachments/assets/f92560cb-05b9-4104-8743-356a160ec9ea)
+
 
 ### Data To Fetch
 
