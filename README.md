@@ -262,7 +262,7 @@ Please report any software “bugs” or other problems with this module through
 This project is open source and available under [the MIT License](https://opensource.org/license/mit).
 
 ---
-<img src="https://github.com/dragon-dev-admin/website/blob/main/main_image.gif?raw=true" width="190">
+<img src="https://github.com/alpha-dragon-org/dragon-module1-tokeninfo/blob/main/frontend/logo-d.gif?raw=true" width="150">
 
 [Discussion](https://github.com/alpha-dragon-org/dragon-community-openIdeas/discussions) |
 [Telegram](https://t.me/+OU0SLVfcpEZhZWQx) |
