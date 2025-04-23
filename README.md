@@ -1,17 +1,17 @@
-# Intro to Dragon's Data-Modules
+# Intro to Dragon's Modules
 
-Dragon is a browser extension that visualizes the concentrations in power for any token on the Solana blockchain. The extension is separated into "data-modules" that provide different analyses on a token's holders. Soon, developers will contribute their own modules to Dragon based on what they think is important for traders to know in the trenches. 
+Dragon is a companion that visualizes the concentrations in power for any token on the Solana blockchain. The extension is separated into modules that provide different analyses on a token. Soon, developers will contribute their own modules to Dragon based on what they think is important for traders to know in the trenches.
 
-The initial release includes four data-modules, and the one for this bounty is:
+The initial release includes four modules and the module for this bounty is:
 
 **4. Cluster Analysis**  
-- This module will display an overview of all the holder wallets that have transferred the token freely between themselves, instead of buying it directly from an exchange. Our defintion of cluster at this stage includes three types of transfers between holder wallets: `A) SOL`, `B) The token of interest`, OR `C) SOL and/or the token of interest` (more details in the [example](#module-details) below). The specific data to be retrieved includes total % held in active clusters, # of wallets per cluster, and more. You can learn more about clusters in [this video](https://youtu.be/WGLXQgMNTAg?si=KG_t_7k7GCNvqfQ_) from Bubblemaps. We understand that our definition is a smaller scope than theirs at the moment.
+- This module produces an overview of all the holder wallets that have transferred the token freely between themselves, instead of buying directly from an exchange. Our defintion of cluster at this stage includes three types of token transfers between holder wallets: `A) SOL`, `B) The token held`, OR `C) SOL and/or the token held` (more details in the [example](#module-details) below). The specific data to be retrieved includes total % held in active clusters, # of wallets per cluster, and more. You can learn more about clusters in [this video](https://youtu.be/WGLXQgMNTAg?si=KG_t_7k7GCNvqfQ_) from Bubblemaps. We understand that our definition of a cluster is on a smaller scale than theirs.
   
 ---
 
 ## Table of Contents
 
-- [Intro to Dragon's Data-Modules](#intro-to-dragons-data-modules)
+- [Intro to Dragon's Modules](#intro-to-dragons-modules)
 - [Table of Contents](#table-of-contents)
   - [Contribution Overview](#contribution-overview)
   - [Folder Structure](#folder-structure)
@@ -28,11 +28,11 @@ The initial release includes four data-modules, and the one for this bounty is:
 
 ## Contribution Overview
 
-This module currently gathers data by web-scraping Bubblemaps. The task is to build a pipeline that connects this module with a Solana RPC (eg. [Helius](https://www.helius.dev)) and replace all scrapes. If any data can not be retrieved from RPC, the developer can use whatever means necessary given the goals stated in the [Module Details](#module-details) below.
+This module currently gathers data by web-scraping Bubblemaps. This module currently gathers data by web-scraping TrenchyBot. The task is to build a pipeline that connects this module to a Solana RPC (eg. [Helius](https://www.helius.dev)) and replace all scrapes if possible. If any data can not be retrieved from RPC, the developer can use whatever means necessary given the goals stated in the [Module Details](#module-details) below.
 
-If the data retrieved is as close to real-time as possible, Dragon will become an unbeatable companion in the trenches.
+If the data retrieved is as close to real-time as possible, Dragon becomes an unbeatable companion in the trenches.
 
-*Note:* If any data can not be retrieved by the current function [No Data], it means the bubble maps does not have the token details.
+*Note:* If any data can not be retrieved by the current function [No Data], it means that Bubblemaps does not have that token's details.
 
 ---
 
@@ -196,7 +196,7 @@ We will select a recipient for this bounty based on the following criteria, in o
 
 1. A fully complete retrieval of the data outlined in [Module Details](#module-details)
 2. Closest to 100% accuracy for all data retrieved
-3. Closest to immediate for data retrieval, updated in real-time
+3. Closest to immediate for data retrieval, and updated in real-time
 4. Most comprehensive documentation of the work in accompanying readme file
    
 If there is more than one developer to satisfy the above criteria, the first pull request will receive the bounty. 
@@ -249,14 +249,14 @@ If there is more than one developer to satisfy the above criteria, the first pul
 
 ## Future Bounties
 
-Dragon’s aim is to make token analyses more transparent and community-driven. At the community's direction, bounties will expand to include more types of holder analyses and deception analyses on token supply.
+Dragon’s aim is to make token analyses more transparent and community-driven. At the community's direction, bounties will expand to include all kinds of fundamental token analyses.
 
-If you have an idea for a data-module that could benefit traders in the trenches, please propose it in the discussion [here](https://github.com/orgs/alpha-dragon-org/discussions) to be considered for a bounty.
+If you have an idea for a module that could benefit traders in the trenches, please propose it in the discussion [here](https://github.com/orgs/alpha-dragon-org/discussions) to be considered for a bounty.
 
 ---
 ## Issues
 
-Please report any software “bugs” or other problems with this module through the issues tab here: [github.com/alpha-dragon-org/dragon-module4-clusterAnalysis](https://github.com/alpha-dragon-org/dragon-module4-clusterAnalysis)
+Please report any bugs with this module through the issues tab here: [github.com/alpha-dragon-org/dragon-module4-clusterAnalysis](https://github.com/alpha-dragon-org/dragon-module4-clusterAnalysis)
 
 ---
 ## License
