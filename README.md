@@ -32,8 +32,6 @@ This module currently gathers data by web-scraping Bubblemaps. The task is to bu
 
 If the data retrieved is as close to real-time as possible, Dragon becomes an unbeatable companion in the trenches.
 
-*Note:* If any data can not be retrieved by the current function [No Data], it means that Bubblemaps does not have that token's details.
-
 ---
 
 ## Folder Structure
