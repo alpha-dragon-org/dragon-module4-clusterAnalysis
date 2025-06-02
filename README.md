@@ -256,7 +256,7 @@ If it receives significant support, we'll create a bounty to develop it!
 ---
 ## Issues
 
-Please report any bugs with this module through the issues tab [here](https://github.com/alpha-dragon-org/dragon-module4-clusterAnalysis).
+Please report any bugs with this module through the issues tab [here](https://github.com/alpha-dragon-org/dragon-module4-clusterAnalysis/issues).
 
 ---
 ## License
